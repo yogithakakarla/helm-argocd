@@ -1,0 +1,20 @@
+# templates/application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
+spec:
+  destination:
+    server: {{ .Values.destination.server }}
+    namespace: {{ .Values.destination.namespace }}
+  project: {{ .Values.project }}
+  source:
+    repoURL: {{ .Values.source.repoURL }}
+    path: {{ .Values.source.path }}
+    targetRevision: {{ .Values.source.targetRevision }}
+  syncPolicy:
+    automated:
+      prune: {{ .Values.syncPolicy.automated.prune }}
+    syncOptions:
+    - CreateNamespace={{ .Values.syncPolicy.syncOptions.CreateNamespace }}
