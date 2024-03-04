@@ -1,0 +1,16 @@
+# values.yaml
+name: app1
+namespace: argocd
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: 'dev-app1'
+project: default
+source:
+  repoURL: 'https://github.com/yogithakakarla/kustomize-multiple-apps.git'
+  path: 'common/app1/overlays/dev'
+  targetRevision: 'HEAD'
+syncPolicy:
+  automated:
+    prune: true
+  syncOptions:
+  - CreateNamespace=true
