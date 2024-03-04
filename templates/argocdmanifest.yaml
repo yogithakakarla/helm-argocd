@@ -14,8 +14,6 @@ spec:
     path: {{ .Values.source.path }}
     targetRevision: {{ .Values.source.targetRevision }}
   syncPolicy:
-    automated:
-      prune: {{ .Values.syncPolicy.automated.prune }}
     syncOptions:
-    - CreateNamespace={{ .Values.syncPolicy.syncOptions.CreateNamespace | quote }}
+      - ApplyOutOfSyncOnly=true
 
