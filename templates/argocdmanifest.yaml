@@ -17,4 +17,5 @@ spec:
     automated:
       prune: {{ .Values.syncPolicy.automated.prune }}
     syncOptions:
-    - "CreateNamespace={{ .Values.syncPolicy.syncOptions.CreateNamespace }}"
+    - CreateNamespace={{ .Values.syncPolicy.syncOptions.CreateNamespace | quote }}
+
