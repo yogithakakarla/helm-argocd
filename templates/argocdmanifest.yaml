@@ -16,4 +16,5 @@ spec:
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true
+      - ApplyOnly=true
 
